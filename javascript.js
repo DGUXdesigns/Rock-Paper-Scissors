@@ -42,10 +42,10 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++ 
+        humanScore++; 
     } else {
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++
+        computerScore++;
     }
   }
   
