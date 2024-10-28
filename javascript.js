@@ -3,13 +3,11 @@ function getComputerChoice() {
     let randomNum = Math.floor(Math.random()*3);
     
     if (randomNum === 2) {
-        return "Rock";
+        return "rock";
     } else if (randomNum === 1) {
-        return "Paper";
+        return "paper";
     } else if (randomNum === 0) {
-        return "Scissors"
-    } else {
-        return "error";
+        return "scissors"
     }
 // Output: "Rock!", "Paper!", "Scissors" (Randomly selected)
 }
@@ -24,34 +22,35 @@ function getHumanChoice() {
     }
 
     if (choice === "rock" || choice === "paper" || choice === "scissors") {
-        return `You chose ${choice}`;
+        return choice;
     } else {
         return "Invalid choice! please choose 'rock, 'paper', or 'scissors'.";
     }
 }
 
-console.log(getHumanChoice())
-
-/*
 //score tracking
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     // your code here!
-    humanChoice = humanSelection;
-    computerChoice =computerSelection;
-
-    if (humanChoice === "rock" && computerChoice === "Scissors",
-        humanChoice === "paper" && computerChoice === "Rock",
-        humanChoice === "scissors" && computerChoice === "Paper"
+    if (humanChoice === computerChoice) {
+        console.log(`It's a tie! You both Chose ${humanChoice}`);
+    } else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        return `You win! ${computerChoice} beats ${humanChoice}`; 
-    } 
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        humanScore++ 
+    } else {
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++
+    }
   }
   
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
   
   playRound(humanSelection, computerSelection);
-  */
+  
