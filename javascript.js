@@ -9,7 +9,8 @@ function getComputerChoice() {
     } else if (randomNum === 0) {
         return "scissors"
     }
-// Output: "rock", "paper", "scissors" (Randomly selected)
+
+    // Output: "rock", "paper", "scissors" (Randomly selected)
 }
 
 function getHumanChoice() {
