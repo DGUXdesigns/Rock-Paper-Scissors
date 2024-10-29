@@ -24,7 +24,7 @@ function getHumanChoice() {
     if (choice === "rock" || choice === "paper" || choice === "scissors") {
         return choice;
     } else {
-        return "Invalid choice! please choose 'rock, 'paper', or 'scissors'.";
+        return "invalid";
     }
 }
 
@@ -55,6 +55,7 @@ function playGame() {
         const humanSelection = getHumanChoice();
         if (humanSelection === "invalid") {
             console.log("Invalid choice! Please choose 'rock', 'paper', or 'scissors'.");
+            i--;
             continue; // Skip this round if the choice is invalid
         } 
         const computerSelection = getComputerChoice();
