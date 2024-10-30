@@ -1,6 +1,28 @@
+let playerScore = 0;
+let computerScore = 0;
+
+// Function to display Results
 function displayResult(message) {
     const output = document.querySelector(".results");
     output.textContent = message;
+    updateScoreboard();
+}
+
+function updateScoreboard() {
+    const playerScoreDisplay = document.querySelector("#humanScore");
+    const computerScoreDisplay = document.querySelector("#computerScore");
+    const gameResultDisplay = document.querySelector("#gameResult");
+
+    playerScoreDisplay.textContent = `Your Score: ${playerScore}`
+    computerScoreDisplay.textContent = `PC Score: ${computerScore}`
+
+    if (humanScore === 5) {
+        gameResultDisplay.textContent = "Congratulations! You win the game!";
+    } else if (computerScore === 5) {
+        gameResultDisplay.textContent = "You lost the game. Better luck next time!";
+    } else {
+        gameResultDisplay.textContent = ""
+    }
 }
 
 // Function to determine computer choice
@@ -8,7 +30,7 @@ function getComputerChoice() {
     let randomNum = Math.floor(Math.random()*3);
     return randomNum === 2 ?  "rock": randomNum === 1 ? "paper" : "scissors";
 }
-  
+
 //Function to play a single round
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
@@ -19,10 +41,13 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         resultMessage = `You win! ${humanChoice} beats ${computerChoice}`;
+        playerScore++;
     } else {
         resultMessage = `You lose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
     }
-    displayResult(resultMessage)
+
+    displayResult(resultMessage);
 }
 
 // Select buttons from the HTML and add event listeners
@@ -30,33 +55,8 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
-        const humanChoice = button.textContent.toLowerCase(); // Convert button text to lowercase
+        const humanChoice = button.textContent.toLowerCase();
         const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice); // Play a round with the clicked choice
+        playRound(humanChoice, computerChoice); 
     });
 })
-
-/*
-//Final results
-console.log("FinalResults:");
-if (humanScore > computerScore) {
-    console.log("Congratulations! You win!");
-} else if (humanScore < computerScore) {
-    console.log("You lost. Better luck next time!");
-} else {
-    console.log("It's a tie game!");
-}
-*/
-
-    /* Play 5 Rounds
-    for (let i = 0; i <5; i++) {
-        const humanSelection = getHumanChoice();
-        if (humanSelection === "invalid") {
-            console.log("Invalid choice! Please choose 'rock', 'paper', or 'scissors'.");
-            i--;
-            continue; // Skip this round if the choice is invalid
-        } 
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log(`Round ${i + 1} Scores - You: ${humanScore}, Computer: ${computerScore}`);
-    }*/
