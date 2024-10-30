@@ -26,6 +26,13 @@ button {
     letter-spacing: 2px;
 }
 
+button:hover {
+    background-color: orange;
+    color: black;
+    transform: scale(1.1);
+    transition: 300ms;
+}
+
 .playerOptions {
     display: flex;
     justify-content: center;
@@ -60,4 +67,8 @@ button {
 
 #gameResult {
     color: white !important;
+}
+
+.results {
+    color: white;
 }
