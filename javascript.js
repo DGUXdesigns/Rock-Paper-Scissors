@@ -1,7 +1,6 @@
 let playerScore = 0;
 let computerScore = 0;
 
-// Function to display Results
 function displayResult(message) {
     const output = document.querySelector(".results");
     output.textContent = message;
@@ -16,16 +15,17 @@ function updateScoreboard() {
     playerScoreDisplay.textContent = `Your Score: ${playerScore}`
     computerScoreDisplay.textContent = `PC Score: ${computerScore}`
 
-    if (humanScore === 5) {
+    if (playerScore === 5) {
         gameResultDisplay.textContent = "Congratulations! You win the game!";
+        playAgainButton.classList.remove("hidden");
     } else if (computerScore === 5) {
         gameResultDisplay.textContent = "You lost the game. Better luck next time!";
+        playAgainButton.classList.remove("hidden");
     } else {
         gameResultDisplay.textContent = ""
     }
 }
 
-// Function to determine computer choice
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random()*3);
     return randomNum === 2 ?  "rock": randomNum === 1 ? "paper" : "scissors";
@@ -50,7 +50,6 @@ function playRound(humanChoice, computerChoice) {
     displayResult(resultMessage);
 }
 
-// Select buttons from the HTML and add event listeners
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
@@ -60,3 +59,12 @@ buttons.forEach(button => {
         playRound(humanChoice, computerChoice); 
     });
 })
+
+const playAgainButton = document.querySelector("#playAgain");
+playAgainButton.addEventListener("click", () => {
+    playerScore = 0;
+    computerScore = 0;
+    displayResult(""); // Clear result message
+    updateScoreboard();
+    playAgainButton.classList.add("hidden"); // Hide "Play Again" button
+});

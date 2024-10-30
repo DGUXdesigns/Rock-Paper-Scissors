@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./stylesheet.css">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="CSS/stylesheet.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    </head>
 
-    <button>Rock</button>
-    <button>Paper</button>
-    <button>Scissors</button>
-    
-    <div class="results"></div>
-    <div id="scoreboard">
-        <p id="humanScore">Your Score: 0</p>
-        <p id="computerScore">Computer Score: 0</p>
-        <p id="gameResult"></p> <!-- To display the game result -->
-    </div>
-    
-    <script src="./javascript.js"></script>
-</body>
+    <body>
+        <div class ="playAgainContainer">
+            <button id="playAgain" class="hidden">Play Again</button>
+        </div>
+
+        <div class="results"></div>
+        <div id="scoreboard">
+            <div class ="scoreTracker">
+                <p id="humanScore">Your Score: 0</p>
+                <p id="computerScore">Computer Score: 0</p>
+            </div>
+            <p id="gameResult"></p> <!-- To display the game result -->
+        </div>
+        
+        <div class="playerOptions">
+            <button>Rock</button>
+            <button>Paper</button>
+            <button>Scissors</button>
+        </div>
+
+        <script src="./javascript.js"></script>
+    </body>
 </html>
