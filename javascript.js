@@ -1,3 +1,9 @@
+function displayResult(message) {
+    const output = document.querySelector(".results");
+    output.textContent = message;
+}
+
+// Function to determine computer choice
 function getComputerChoice() {
     let randomNum = Math.floor(Math.random()*3);
     return randomNum === 2 ?  "rock": randomNum === 1 ? "paper" : "scissors";
@@ -5,22 +11,18 @@ function getComputerChoice() {
   
 //Function to play a single round
 function playRound(humanChoice, computerChoice) {
-    let humanScore = 0
-    let computerScore = 0
-
     if (humanChoice === computerChoice) {
-        console.log(`It's a tie! You both Chose ${humanChoice}`);
+        resultMessage = `It's a tie! You both Chose ${humanChoice}`;
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++; 
+        resultMessage = `You win! ${humanChoice} beats ${computerChoice}`;
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++;
+        resultMessage = `You lose! ${computerChoice} beats ${humanChoice}`;
     }
+    displayResult(resultMessage)
 }
 
 // Select buttons from the HTML and add event listeners
@@ -34,11 +36,17 @@ buttons.forEach(button => {
     });
 })
 
-
-
-
-
-
+/*
+//Final results
+console.log("FinalResults:");
+if (humanScore > computerScore) {
+    console.log("Congratulations! You win!");
+} else if (humanScore < computerScore) {
+    console.log("You lost. Better luck next time!");
+} else {
+    console.log("It's a tie game!");
+}
+*/
 
     /* Play 5 Rounds
     for (let i = 0; i <5; i++) {
@@ -52,13 +60,3 @@ buttons.forEach(button => {
         playRound(humanSelection, computerSelection);
         console.log(`Round ${i + 1} Scores - You: ${humanScore}, Computer: ${computerScore}`);
     }*/
-
-/*//Final results
-console.log("FinalResults:");
-if (humanScore > computerScore) {
-    console.log("Congratulations! You win!");
-} else if (humanScore < computerScore) {
-    console.log("You lost. Better luck next time!");
-} else {
-    console.log("It's a tie game!");
-}*/
